@@ -17,13 +17,22 @@
 
 # ===== About =====
 # Script to automatically set the necessary global flatpoak environment
-# variables to allow them to leverage the GPU.
+#   variables to allow them to leverage the GPU.
 
 # The idea for this script originated from flatseal's ability to set global
-# variables. Based on the flatseal UI, it supposedly sets the variables
-# in the same file (in generally the same path) specified here.
+#   variables. Based on the flatseal UI, it supposedly sets the variables
+#   in the same file (in generally the same path) specified here.
 
 # Logic for how to read script flags is based on how it's done at my place of work.
+
+
+# ===== USE-CASE =====
+# This script was made so I can enforce the dscrete GPU for my Fedora installation.
+#
+# It would seem that Linux Mint running on Nvidia Performance Mode already
+#   enforces the using the discrete GPU, and this script likely unnecessary.
+# I noticed that some applications had degraded performance or didn't apply hardware
+#   acceleration when I ran this script.
 
 
 # ===== Script Proper =====
