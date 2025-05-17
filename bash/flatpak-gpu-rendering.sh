@@ -12,7 +12,7 @@
 
 # ===== Todo =====
 # - Directly overwriting the `global` file is crude. Use something that
-#   is able to pinpoint the variable itself (likely 'awk' or regex via Python or TypeScript). 
+#   can pinpoint the variable itself (likely 'awk' or regex via Python or TypeScript). 
 
 
 # ===== About =====
@@ -23,16 +23,16 @@
 #   variables. Based on the flatseal UI, it supposedly sets the variables
 #   in the same file (in generally the same path) specified here.
 
-# Logic for how to read script flags is based on how it's done at my place of work.
+# The Logic for reading script flags is based on how it's done at my place of work.
 
 
 # ===== USE-CASE =====
-# This script was made so I can enforce the dscrete GPU for my Fedora installation.
-#
 # It would seem that Linux Mint running on Nvidia Performance Mode already
-#   enforces the using the discrete GPU, and this script likely unnecessary.
+#   enforces the use of the discrete GPU, and this script is likely unnecessary.
 # I noticed that some applications had degraded performance or didn't apply hardware
-#   acceleration when I ran this script.
+#   acceleration when I ran this script on X11. Based on my testing,
+#   this script should only be run for Wayland sessions (tested for both Mint
+#   and Fedora)
 
 
 # ===== Script Proper =====
@@ -69,10 +69,10 @@ if [ -n "$STATUS" ]; then
     printf "%s\n" "$OPENGL_CONFIG" > $GLOBAL_PATH_PATH
     echo "Flatpak global OpenGL setings set to Nvidia"
 
-    # If Vulkan is availabe, set it as a global variable as well.
+    # If Vulkan is available, set it as a global variable as well.
     if [ -f "$NVIDIA_VULKAN_ICD" ]; then
         printf "%s\n" "$VULKAN_GLOBAL_CONFIG" >> $GLOBAL_PATH_PATH
-        printf "%s\n" "Flatpak global Vulkan setings activated"
+        printf "%s\n" "Flatpak global Vulkan settings activated"
     fi
 
     printf "\nVerify the GPU is active using the command: glxinfo | grep 'OpenGL renderer'\n"
